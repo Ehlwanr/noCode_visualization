@@ -1,21 +1,21 @@
 <script setup lang="ts">
-import { Bug,Data, LayoutThree, Lightning, Share } from '@icon-park/vue-next'
+import { Api, Form, Margin, Workbench, ShareThree } from '@icon-park/vue-next'
 import { computed, defineComponent, h } from 'vue'
 import { useRoute } from 'vue-router'
-
 import { useEnvStore } from '@/stores/debug'
+
 
 const linkItems = [
   {
     value: 'dataSource',
-    label: '数据源',
+    label: '表格',
     bg: `radial-gradient(50% 50% at 50% 100%, rgba(0, 196, 83, 0.2) 0%, rgba(0, 196, 83, 0) 100%)`,
     color: 'rgb(0, 196, 83)',
     borderColor: 'radial-gradient(50% 50%, rgb(0, 196, 83) 0%, rgba(0, 196, 83, 0) 100%)'
   },
   {
     value: 'layout',
-    label: '布局',
+    label: '拖拽',
     bg: `radial-gradient(50% 50% at 50% 100%, rgba(24, 190, 212, 0.2) 0%, rgba(24, 190, 212, 0) 100%)`,
     color: 'rgb(24, 190, 212)',
     borderColor: 'radial-gradient(50% 50%, rgb(24, 190, 212) 0%, rgba(24, 190, 212, 0) 100%)'
@@ -33,35 +33,22 @@ defineProps<{
   msg: string
 }>()
 
-// 千万不要这样！
-// const { debug, toggle } = useEnvStore()
 const envStore = useEnvStore()
 
 const route = useRoute()
 
 const activeLink = computed(() => route.path)
 
-// 等价于 computed
-// const activeLink = ref(route.path.slice(1))
-// watch(
-//   () => route.path,
-//   (path) => {
-//     console.log('🚀 ~ file: AppNavigator.vue:20 ~ path:', path)
-//     activeLink.value = path.slice(1)
-//   }
-// )
 
 const Icon = defineComponent({
   setup(props) {
-    // 千万不能这样子写！！！
-    // const { type } = props
     switch (props.type) {
       case 'dataSource':
-        return () => h(Data, { size: 16 })
+        return () => h(Form, { size: 16 })
       case 'layout':
-        return () => h(LayoutThree, { size: 16 })
+        return () => h(Margin, { size: 16 })
       case 'actions':
-        return () => h(Lightning, { size: 16 })
+        return () => h(Workbench, { size: 16 })
 
       default:
         return () => h('div')
@@ -81,10 +68,10 @@ const Icon = defineComponent({
     <div class="app-info-wrapper">
       <div class="app-logo">
         <img
-          src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/11.3.0/2/svg/1f469-200d-1f692.svg"
+          src="../assets/dog.svg"
         />
       </div>
-      <h1 class="app-name">Byelide</h1>
+      <h1 class="app-name">Visualization</h1>
     </div>
     <div class="app-navigator-link-wrapper">
       <router-link
@@ -94,10 +81,6 @@ const Icon = defineComponent({
         :style="activeLink.includes(item.value) && { background: item.bg }"
         :to="`/app/${item.value}`"
       >
-        <!-- defineComponent + h 代替条件渲染 -->
-        <!-- <div v-if="item.value === 'dataSource'"><Data /></div>
-        <div v-if="item.value === 'layout'"><LayoutThree /></div>
-        <div v-if="item.value === 'action'"><Lightning /></div> -->
         <div
           :style="{
             lineHeight: 0.7,
@@ -117,11 +100,11 @@ const Icon = defineComponent({
     </div>
     <div class="app-setting-wrapper">
       <div class="common-btn debug-btn" :class="{ debug: envStore.debug }" @click="envStore.toggle">
-        <Bug />
+        <Api />
         开发模式:({{ envStore.debug ? '开' : '关' }})
       </div>
-      <div class="common-btn">
-        <Share />
+      <div class="common-btn" @click="$router.push('/runner')">
+        <ShareThree />
         发布
       </div>
     </div>
@@ -156,7 +139,7 @@ const Icon = defineComponent({
 .app-logo img {
   width: 100%;
   height: 100%;
-  padding: 6px;
+  padding: 2px;
 }
 
 .app-name {

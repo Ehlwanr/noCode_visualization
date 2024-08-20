@@ -100,7 +100,7 @@ const toggleDrawer = (drawerMode: DrawerMode = null) => {
 /* 下面我们会解释这些 class 是做什么的 */
 .app-left-panel-drawer-enter-active,
 .app-left-panel-drawer-leave-active {
-  transition: width 0.1s cubic-bezier(0.3, 0.1, 0.3, 1);
+  transition: width 0.3s cubic-bezier(0.3, 0.1, 0.3, 1);
 }
 
 .app-left-panel-drawer-enter-from,

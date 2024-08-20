@@ -46,7 +46,7 @@ import { blocksBaseMetaList, getBlocksDefaultData } from '@/constants/blocksBase
 }
 
 .blocks-list {
-  --grid-item-color: #1edb5b;
+  --grid-item-color: var(--color-orange-light);
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);

@@ -34,7 +34,7 @@ function toggle() {
   <div class="layout-runner" ref="runner">
     <div class="layout-runner-navigator">
       <div></div>
-      <div class="address-wrapper">https://helloword.com/sdfsfsdf/sggwefwfsdfsdfsdfsdfsf</div>
+      <div class="address-wrapper">https://www.visualization.com/index</div>
 
       <PreviewModeSwitcher
         :preview-mode="props.previewMode"

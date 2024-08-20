@@ -1,12 +1,12 @@
 import {
   ChartLine,
-  Form,
-  HamburgerButton,
+  SwitchButton,
   ImageFiles,
   Notes,
   Quote,
   Table,
-  TitleLevel
+  TitleLevel,
+  ListView
 } from '@icon-park/vue-next'
 import type { Icon } from '@icon-park/vue-next/lib/runtime'
 import { nanoid } from 'nanoid'
@@ -33,7 +33,7 @@ export const blocksBaseMetaList: { type: BlockType; label: string; icon: Icon }[
   {
     type: 'view',
     label: '视图',
-    icon: Table
+    icon: ListView
   },
   {
     type: 'chart',
@@ -43,12 +43,12 @@ export const blocksBaseMetaList: { type: BlockType; label: string; icon: Icon }[
   {
     type: 'button',
     label: '按钮',
-    icon: HamburgerButton
+    icon: SwitchButton
   },
   {
     type: 'form',
     label: '表单',
-    icon: Form
+    icon: Table
   }
 ]
 

@@ -6,7 +6,7 @@ import BlocksRenderer from '@/blocks/BlocksRenderer.vue'
   <div class="layout-runner-content-wrapper tiny-scrollbar">
     <div class="layout-runner-content-header">
       <div class="layout-runner-content-navigator"></div>
-      <div class="layout-runner-content-title">Byelide</div>
+      <div class="layout-runner-content-title">Visualization</div>
     </div>
     <div class="layout-runner-content">
       <BlocksRenderer />
@@ -53,5 +53,6 @@ import BlocksRenderer from '@/blocks/BlocksRenderer.vue'
   flex-direction: column;
   align-items: center;
   padding: 0 90px;
+  margin: 20px 0;
 }
 </style>

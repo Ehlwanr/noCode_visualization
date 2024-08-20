@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { DataSheet } from '@icon-park/vue-next'
+import { Data } from '@icon-park/vue-next'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 
@@ -10,23 +10,7 @@ const activeLink = computed(() => route.path)
 const dataLists = [
   {
     id: '1',
-    name: '数据源1'
-  },
-  {
-    id: '2',
-    name: '数据源2'
-  },
-  {
-    id: '3',
-    name: '数据源3'
-  },
-  {
-    id: '4',
-    name: '数据源4'
-  },
-  {
-    id: '5',
-    name: '数据源5'
+    name: '数据源'
   }
 ]
 </script>
@@ -40,8 +24,8 @@ const dataLists = [
         :class="['ds-item', activeLink.includes(ds.id) && 'active']"
         :to="`/app/dataSource/${ds.id}`"
       >
-        <data-sheet />
-        <div class="item-label">{{ ds.id }} 100w 行数据，非常流畅</div>
+        <Data/>
+        <div class="item-label">{{ ds.id }} 100w 行</div>
       </router-link>
     </div>
   </div>
