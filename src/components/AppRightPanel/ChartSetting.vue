@@ -1,18 +1,15 @@
 <script setup lang="ts">
-import { useForm } from 'vee-validate'
-import { watch } from 'vue'
 
 import type { ChartBlockInfo, ChartType } from '@/types/block'
 import SegmentedControl from '@/ui/SegmentedControl/SegmentedControl.vue'
 
-// 怎么传入 props，在这里如何定义？
 const props = defineProps<{
   blockInfo: ChartBlockInfo
 }>()
 
 const data = [
   {
-    label: 'Echarts-Echarts',
+    label: 'Echarts',
     value: 'echarts'
   },
   {
@@ -27,29 +24,13 @@ const data = [
 
 const emit = defineEmits<{ (event: 'change', block: ChartBlockInfo): void }>()
 
-
-
-const { values, validate, defineInputBinds } = useForm({
-  initialValues: {
-    chartType: props.blockInfo.props.chartType
-  }
-})
-
-
-const chartType = defineInputBinds('chartType')
-
-watch([values], ([newValues]) => {
-  emit('change', { ...props.blockInfo, props: { ...props.blockInfo.props, ...newValues } })
-})
-
-// const c = useField('content')
 </script>
 
 <template>
   <div>
     {{ props.blockInfo.type }}
   </div>
-  <segmented-control v-model="chartType" :data="data" :blockInfo="blockInfo" @input="(val) => {
+  <segmented-control :data="data" :blockInfo="blockInfo" @input="(val) => {
     emit('change', {
       ...props.blockInfo,
       props: { ...props.blockInfo.props, chartType: val as ChartType }
@@ -61,7 +42,6 @@ watch([values], ([newValues]) => {
 <style scoped>
 .content-input {
   width: 100%;
-
   /* 在做组件库的时候，input 是有一个 size 属性，sm、md、lg */
   height: 32px;
   margin-top: 8px;

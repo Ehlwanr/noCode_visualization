@@ -32,8 +32,6 @@ const baseBlocks = [
     material: ImageBlock
   }
 ]
-// 因为我们后面会考虑插件市场，所以我们需要一个类来管理所有的 block
-// 只有你安装了对应的外部插件，你才能在页面中使用
 class BlockSuite {
   private blocks = baseBlocks
   constructor() {}
@@ -53,11 +51,6 @@ class BlockSuite {
 
 const blockSuite = new BlockSuite()
 
-console.log(
-  '🚀 ~ file: BlockRenderer.vue:55 ~ blockSuite.hasBlock(button):',
-  blockSuite.hasBlock('button')
-)
-
 blockSuite.addBlock({
   type: 'button',
   material: ButtonBlock
@@ -70,10 +63,7 @@ blockSuite.addBlock({
   type: 'notes',
   material: NotesBlock
 })
-console.log(
-  '🚀 ~ file: BlockRenderer.vue:68 ~ blockSuite.hasBlock(button):',
-  blockSuite.hasBlock('button')
-)
+
 const blocksMap = blockSuite.getBlocksMap()
 
 export const blocksMapSymbol = Symbol('blocksMap')
@@ -91,17 +81,17 @@ export const setup = (app: App<Element>) => {
   app.use(ins)
 }
 
-// Extensions of Vue types to be appended manually
-// https://github.com/microsoft/rushstack/issues/2090
-// https://github.com/microsoft/rushstack/issues/1709
+// // Extensions of Vue types to be appended manually
+// // https://github.com/microsoft/rushstack/issues/2090
+// // https://github.com/microsoft/rushstack/issues/1709
 
 // TODO: figure out why it cannot be 'vue'
-// @ts-ignore: works on Vue 3, fails in Vue 2
-declare module '@vue/runtime-core' {
-  export interface ComponentCustomProperties {
-    /**
-     * Access to the application's blocksMap
-     */
-    $blocksMap: string
-  }
-}
+// // @ts-ignore: works on Vue 3, fails in Vue 2
+// declare module '@vue/runtime-core' {
+//   export interface ComponentCustomProperties {
+//     /**
+//      * Access to the application's blocksMap
+//      */
+//     $blocksMap: string
+//   }
+// }

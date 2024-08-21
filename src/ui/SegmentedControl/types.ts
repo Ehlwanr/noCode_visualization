@@ -4,7 +4,6 @@ export type SegmentedControlItem = {
 }
 
 export interface SegmentedControlProps {
-  value?: string
   data: SegmentedControlItem[]
   blockInfo:any
 }

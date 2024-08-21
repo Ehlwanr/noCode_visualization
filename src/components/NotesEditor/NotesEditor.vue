@@ -2,9 +2,16 @@
 import { Strikethrough, TextBold, TextItalic } from '@icon-park/vue-next'
 import StarterKit from '@tiptap/starter-kit'
 import { EditorContent, useEditor } from '@tiptap/vue-3'
-import { inject } from 'vue'
+import { inject, watch } from 'vue'
 
 import { ColorHighlighter } from './extensions/ColorHighlighter'
+
+import type { NotesBlockInfo } from '@/types/block'
+
+
+const props = defineProps<{
+  NotesBlockInfo: NotesBlockInfo
+}>()
 
 const editable = inject('editable', true)
 
@@ -20,11 +27,10 @@ const editor = useEditor({
     }),
     ColorHighlighter
   ],
-  content: `
-    <p>I’m <em>running</em> Tiptap <s>with</s> Vue.js. 🎉</p>
-    <p><strong>You</strong> can also teach the editor new things. For example to recognize hex colors and add a color</p>
-    <p> swatch on the fly: #FFF, #0D0D0D, #616161, #A975FF, #FB5151, #FD9170, #FFCB6B, #68CEF8, #80cbc4, #9DEF8F </p>
-  `
+  content: props.NotesBlockInfo.props.content,
+})
+watch(() => editor.value?.getHTML(), (newVal) => {
+  newVal? props.NotesBlockInfo.props.content = newVal : ''
 })
 </script>
 

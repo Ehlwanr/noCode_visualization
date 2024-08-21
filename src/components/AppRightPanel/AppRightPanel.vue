@@ -9,6 +9,7 @@ import type { BlockInfo } from '@/types/block'
 
 import ChartSetting from './ChartSetting.vue'
 import QuoteSetting from './QuoteSetting.vue'
+import ImageSetting from './ImageSetting.vue'
 import SchemaExporter from './SchemaExporter.vue'
 
 const appEditorStore = useAppEditorStore()
@@ -34,6 +35,9 @@ const blockSetting = computed(() => {
     case 'chart': {
       return ChartSetting
     }
+    case 'image': {
+      return ImageSetting
+    }
     default:
       return ''
   }
@@ -47,21 +51,12 @@ const blockSetting = computed(() => {
         {{ blocksBaseMeta[currentBlockInfo.type].label }}
       </div>
       <div class="app-right-panel-content">
-        <!-- 策略模式渲染？？？ 动态组件-->
         <component
           :is="blockSetting"
           :blockInfo="currentBlockInfo"
           @change="(block: BlockInfo) => appEditorStore.updateBlock(block.id, block)"
         />
         <SchemaExporter :currentBlockInfo="currentBlockInfo" />
-        <!-- <QuoteSetting
-          :blockInfo="currentBlockInfo"
-          @change="(val) => appEditorStore.updateBlock(currentBlockInfo?.id, val)"
-        /> -->
-        <!-- <div>
-          {{ currentBlockInfo.type }}
-        </div>
-        <input v-if="currentBlockInfo.type === 'quote'" :defaultValue="currentBlockInfo.label" /> -->
       </div>
     </template>
   </div>

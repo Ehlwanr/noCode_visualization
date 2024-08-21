@@ -16,7 +16,7 @@ onMounted(() => {
 
   var t1 = new zrender.Text({
     style: {
-      text: 'zrender',
+      text: 'wuxcong',
       align: 'center',
       verticalAlign: 'middle',
       fill: '#0ff',
@@ -33,7 +33,7 @@ onMounted(() => {
   var t2 = new zrender.Text({
     culling: true,
     style: {
-      text: 'zrender',
+      text: 'wuxcong',
       fontSize: 200,
       align: 'center',
       fill: '#fff',

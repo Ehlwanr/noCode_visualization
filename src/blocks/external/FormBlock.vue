@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { h } from 'vue'
 type Field = {
-  label: string
   id: string
   type: 'input' | 'select'
 }
@@ -23,12 +22,10 @@ const fieldMap = {
 
 const fields: Field[] = [
   {
-    label: '标题',
     id: '1',
     type: 'input'
   },
   {
-    label: '副标题',
     id: '2',
     type: 'select'
   }
@@ -47,6 +44,7 @@ const fields: Field[] = [
 .form {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .form-item {

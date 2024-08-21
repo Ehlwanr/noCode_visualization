@@ -29,7 +29,10 @@ export const blocksBaseMetaList: { type: BlockType; label: string; icon: Icon }[
     label: '超级标题',
     icon: TitleLevel
   },
-  { type: 'image', label: '图片', icon: ImageFiles },
+  { type: 'image',
+    label: '图片',
+    icon: ImageFiles
+  },
   {
     type: 'view',
     label: '视图',
@@ -65,7 +68,7 @@ export const getBlocksDefaultData = (type: BlockType): BlockInfo => {
         type: 'quote',
         label: '引述',
         props: {
-          content: '引述文本 quote',
+          content: '引述文本 - 例子🌰 QUOTE',
           status: 'success'
         }
       }
@@ -76,9 +79,8 @@ export const getBlocksDefaultData = (type: BlockType): BlockInfo => {
         label: '笔记',
         props: {
           content: `
-          <p>I’m <em>running</em> Tiptap <s>with</s> Vue.js. 🎉</p>
-          <p><strong>You</strong> can also teach the editor new things. For example to recognize hex colors and add a color</p>
-          <p> swatch on the fly: #FFF, #0D0D0D, #616161, #A975FF, #FB5151, #FD9170, #FFCB6B, #68CEF8, #80cbc4, #9DEF8F </p>
+          <p><em>笔记默认</em>  <s>🎉</s></p>
+          <p><strong>鲁迅</strong> 大约人们一遇到不大看惯的东西，总不免以为他古怪。我还记得初看见西洋人的时候，就觉得他脸太白，头发太黄，眼珠太淡，鼻梁太高。虽然不能明明白白地说出理由来，但总而言之：相貌不应该如此。至于对于中国人的脸，是毫无异议；即使有好丑之别，然而都不错的。我们的古人，倒似乎并不放松自己中国人的相貌。</p>
         `
         }
       }
@@ -97,7 +99,7 @@ export const getBlocksDefaultData = (type: BlockType): BlockInfo => {
         type: 'image',
         label: '图片',
         props: {
-          url: 'https://images.pexels.com/photos/2577274/pexels-photo-2577274.jpeg?auto=compress&cs=tinysrgb&w=1600'
+          url: 'https://Ehlwanr.github.io/picx-images-hosting/noCode_visualization_images/paperwall_9.1e8j7ertin.webp'
         }
       }
     case 'view':

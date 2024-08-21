@@ -50,17 +50,17 @@ const activePosition = reactive({
 
 const { width, height, translate } = toRefs(activePosition)
 
-const innerValue = ref(props.value ?? props.data[0].value)
-
 const handleChange = (val: string) => {
   innerValue.value = val
   emit('input', val)
 }
 
-watch(
-  [props],
+
+const innerValue = ref(props.blockInfo.props.chartType ?? props.blockInfo.props.status ?? props.data[0].value)
+
+watch([props],
   ([p]) => {
-    innerValue.value = p.value?? p.blockInfo.props.chartType ?? p.data[0].value
+    innerValue.value = p.blockInfo.props.chartType ?? props.blockInfo.props.status ?? p.data[0].value
   },
   { immediate: true }
 )

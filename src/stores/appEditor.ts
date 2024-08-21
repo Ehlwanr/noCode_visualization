@@ -18,12 +18,6 @@ export const useAppEditorStore = defineStore('appEditor', () => {
   }
 
   function updateBlock(id: string, newBlock: BlockInfo) {
-    // blocks.value = blocks.value.map((block) => {
-    //   if (block.id === id) {
-    //     return newBlock
-    //   }
-    //   return block
-    // })
     for (const block of blocks.value) {
       if (block.id === id) {
         Object.assign(block, newBlock)
