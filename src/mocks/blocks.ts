@@ -3,6 +3,39 @@ import type { BlockInfo } from '@/types/block'
 export const blocks: BlockInfo[] = [
   {
     id: '1',
+    type: 'heroTitle',
+    label: '标题',
+    props: {
+      content: 'Beautiful Scenery'
+    }
+  },
+  {
+    id: '2',
+    type: 'quote',
+    label: '引述',
+    props: {
+      content: '山头云似雪,陌上树如人。',
+      status: 'success'
+    }
+  },
+  {
+    id: '3',
+    type: 'image',
+    label: '图片',
+    props: {
+      url: 'https://Ehlwanr.github.io/picx-images-hosting/noCode_visualization_images/paperwall_1.6t71pu6ywt.webp'
+    }
+  },
+  {
+    id: '4',
+    type: 'heroTitle',
+    label: '标题',
+    props: {
+      content: 'Material'
+    }
+  },
+  {
+    id: '5',
     type: 'quote',
     label: '引述',
     props: {
@@ -11,15 +44,16 @@ export const blocks: BlockInfo[] = [
     }
   },
   {
-    id: '2',
+    id: '6',
     type: 'chart',
     label: '图表',
     props: {
-      chartType: 'echarts'
+      chartType: 'echarts',
+      theme: 'light',
     }
   },
   {
-    id: '3',
+    id: '7',
     type: 'notes',
     label: '笔记',
     props: {
@@ -30,49 +64,20 @@ export const blocks: BlockInfo[] = [
     }
   },
   {
-    id: '4',
-    type: 'heroTitle',
-    label: '标题',
-    props: {
-      content: '标题'
-    }
-  },
-  {
-    id: '5',
-    type: 'image',
-    label: '图片',
-    props: {
-      url: 'https://Ehlwanr.github.io/picx-images-hosting/noCode_visualization_images/paperwall_1.6t71pu6ywt.webp'
-    }
-  },
-  {
-    id: '6',
-    type: 'view',
-    label: '视图',
-    props: {
-      fields: {
-        'id': {
-          type: 'text',
-        },
-      },
-      fieldProps: [],
-      data: [],
-    }
-  },
-  {
     id: '7',
-    type: 'button',
-    label: '按钮',
-    props: {
-      content: '按钮'
-    }
-  },
-  {
-    id: '8',
     type: 'form',
     label: '表单',
     props: {
       fields: []
     }
-  }
+  },
+  {
+    id: '9',
+    type: 'button',
+    label: '按钮',
+    props: {
+      content: '尝试一下~',
+      flexJC: 'center',
+    }
+  },
 ]

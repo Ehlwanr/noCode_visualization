@@ -29,10 +29,6 @@ const linkItems = [
   }
 ]
 
-defineProps<{
-  msg: string
-}>()
-
 const envStore = useEnvStore()
 
 const route = useRoute()

@@ -58,7 +58,7 @@ function greet(mode: PreviewType) {
   display: flex;
   flex-direction: column;
   width: 393px;
-  height: 852px;
+  height: 87vh;
   margin: 0 auto;
   border-radius: 55px;
   overflow: hidden;

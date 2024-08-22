@@ -90,7 +90,7 @@ export const getBlocksDefaultData = (type: BlockType): BlockInfo => {
         type: 'heroTitle',
         label: '标题',
         props: {
-          content: '标题'
+          content: '大标题 - Super Title'
         }
       }
     case 'image':
@@ -108,14 +108,8 @@ export const getBlocksDefaultData = (type: BlockType): BlockInfo => {
         type: 'view',
         label: '视图',
         props: {
-          fields: {
-            id: {
-              type: 'text'
-            }
-          },
-          fieldProps: [],
-          data: []
-        }
+            content: ''
+        },
       }
     case 'chart':
       return {
@@ -123,7 +117,8 @@ export const getBlocksDefaultData = (type: BlockType): BlockInfo => {
         type: 'chart',
         label: '图表',
         props: {
-          chartType: 'echarts'
+          chartType: 'echarts',
+          theme: 'dark',
         }
       }
     case 'button':
@@ -132,7 +127,8 @@ export const getBlocksDefaultData = (type: BlockType): BlockInfo => {
         type: 'button',
         label: '按钮',
         props: {
-          content: '按钮'
+          content: '按钮文案',
+          flexJC: 'flex-start',
         }
       }
     case 'form':

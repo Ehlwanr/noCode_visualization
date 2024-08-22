@@ -6,8 +6,9 @@ import BlocksRenderer from '@/blocks/BlocksRenderer.vue'
 
 <template>
   <div class="content">
+    <div class="layout-runner-content-navigator"></div>
     <div class="navigator-wrapper">
-      <div class="navigator">Byelide</div>
+      <div class="navigator">Visualization</div>
     </div>
 
     <div class="render-content">
@@ -17,22 +18,6 @@ import BlocksRenderer from '@/blocks/BlocksRenderer.vue'
 </template>
 
 <style scoped>
-.layout-runner {
-  flex: 1;
-}
-
-.layout-runner-navigator {
-  height: 42px;
-  display: grid;
-  font-size: var(--font-size-normal);
-  align-items: center;
-  justify-content: flex-end;
-  gap: 8px;
-  padding: 0 16px;
-  background-color: var(--color-gray-100);
-  width: 100%;
-}
-
 .content {
   position: relative;
   display: flex;
@@ -40,8 +25,13 @@ import BlocksRenderer from '@/blocks/BlocksRenderer.vue'
   background-color: var(--color-white);
 }
 
-.wrapper::-webkit-scrollbar {
-  display: none;
+.layout-runner-content-navigator {
+  height: 20px;
+  font-size: var(--font-size-normal);
+  align-items: center;
+  padding: 0 16px;
+  background-color: var(--color-primary);
+  border-bottom: 1px solid rgb(31 41 55 / 8%);
 }
 
 .navigator-wrapper {

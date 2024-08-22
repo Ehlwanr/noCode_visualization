@@ -20,14 +20,7 @@ export interface HeroTitleBlockInfo extends BaseBlockInfo {
 export interface ViewBlockInfo extends BaseBlockInfo {
   type: 'view',
   props: {
-    fields: Record<string, {
-      type: string
-    }>
-    fieldProps: {
-      width: number
-      visible: boolean
-    }[]
-    data: { id: string; value: string }[]
+    content: string
   }
 }
 
@@ -49,10 +42,12 @@ export interface ImageBlockInfo extends BaseBlockInfo {
 }
 
 // external
+export type flexJustifyType = 'center' | 'flex-start' | 'flex-end'
 export interface ButtonBlockInfo extends BaseBlockInfo {
   type: 'button',
   props: {
-    content: string
+    content: string,
+    flexJC: flexJustifyType,
   }
 }
 
@@ -76,12 +71,14 @@ export interface NotesBlockInfo extends BaseBlockInfo {
 }
 
 
-export type ChartType = 'echarts' | 'canvas' | 'svg'
+export type ChartType = 'echarts' | 'zrender' | 'svg'
+export type themeType = 'light' | 'dark'
 
 export interface ChartBlockInfo extends BaseBlockInfo {
   type: 'chart',
   props: {
     chartType: ChartType
+    theme: themeType
   }
 }
 

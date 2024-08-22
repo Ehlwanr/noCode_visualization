@@ -3,20 +3,19 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 import * as zrender from 'zrender'
 
-var containerRef = ref<HTMLDivElement | null>(null)
-
-onMounted(() => {
-  var zr = zrender.init(containerRef.value, { renderer: 'svg' })
-
+let containerRef = ref<HTMLDivElement | null>(null)
+onMounted(() => { 
+  let zr = zrender.init(containerRef.value, {})
+  
   var w = zr.getWidth()
   var h = zr.getHeight()
 
   var t1 = new zrender.Text({
     style: {
-      text: 'wuxcong',
+      text: 'Wu_',
       align: 'center',
       verticalAlign: 'middle',
       fill: '#0ff',
@@ -33,7 +32,7 @@ onMounted(() => {
   var t2 = new zrender.Text({
     culling: true,
     style: {
-      text: 'wuxcong',
+      text: 'Wu_',
       fontSize: 200,
       align: 'center',
       fill: '#fff',
@@ -98,6 +97,14 @@ onMounted(() => {
       }, 100)
     }
   }, 500)
+  const resizeHandler = () => {
+  zr.resize()
+  }
+  window.addEventListener('resize', resizeHandler)
+  const resizeObserver = new ResizeObserver(entries => {
+    resizeHandler()
+  });
+  containerRef.value ? resizeObserver.observe(containerRef.value) : ''
 })
 </script>
 

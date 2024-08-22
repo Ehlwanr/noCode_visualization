@@ -7,7 +7,7 @@ import AppNavigator from '@/components/AppNavigator.vue'
 <template>
   <div class="app-wrapper">
     <header>
-      <AppNavigator msg="Hello" />
+      <AppNavigator />
     </header>
     <main>
       <RouterView />

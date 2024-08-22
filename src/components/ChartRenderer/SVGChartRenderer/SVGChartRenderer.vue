@@ -9,8 +9,8 @@ import { onMounted, ref } from 'vue'
 const containerRef = ref<HTMLDivElement | null>(null)
 
 onMounted(() => {
-  const width = containerRef.value?.clientWidth || 1024
-  const height = containerRef.value?.clientHeight || 768
+  let width = containerRef.value?.clientWidth || 1024
+  let height = containerRef.value?.clientHeight || 768
 
   const svg = d3
     .select(containerRef.value)

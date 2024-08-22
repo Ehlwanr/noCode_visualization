@@ -13,17 +13,20 @@ const data = [
     value: 'echarts'
   },
   {
-    label: 'Canvas',
-    value: 'canvas'
+    label: 'ZRender',
+    value: 'zrender'
   },
   {
-    label: 'SVG',
+    label: 'D3',
     value: 'svg'
   }
 ]
 
 const emit = defineEmits<{ (event: 'change', block: ChartBlockInfo): void }>()
 
+function changeTheme() {
+  props.blockInfo.props.theme = props.blockInfo.props.theme === 'light' ? 'dark' : 'light'
+}
 </script>
 
 <template>
@@ -37,6 +40,12 @@ const emit = defineEmits<{ (event: 'change', block: ChartBlockInfo): void }>()
     })
   }
     " />
+  <div class="change-theme" v-show="props.blockInfo.props.chartType === 'echarts'">
+    <div class="change-theme-text">Ecahrts主题为:</div>
+    <button class="change-theme-button" @click="changeTheme">
+      {{ props.blockInfo.props.theme }}
+    </button>
+  </div>
 </template>
 
 <style scoped>
@@ -50,5 +59,17 @@ const emit = defineEmits<{ (event: 'change', block: ChartBlockInfo): void }>()
   border-radius: 8px;
   outline-style: none;
   color: var(--color-gray-800);
+}
+.change-theme{
+  width: 80%;
+  display: flex;
+  justify-content: space-between ;
+  align-self: center;  
+}
+.change-theme-text{
+  flex: 1 1 200px;
+}
+.change-theme-button{
+  width: 50px;
 }
 </style>

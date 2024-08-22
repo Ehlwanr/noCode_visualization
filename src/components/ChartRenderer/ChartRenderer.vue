@@ -7,7 +7,7 @@ import { computed } from 'vue'
 
 import type { ChartBlockInfo } from '@/types/block'
 
-import CanvasChartRenderer from './CanvasChartRenderer/CanvasChartRenderer.vue'
+import CanvasChartRenderer from './ZRenderChartRenderer/ZRenderChartRenderer.vue'
 import EchartsRenderer from './EchartsRenderer/EchartsRenderer.vue'
 import SVGChartRenderer from './SVGChartRenderer/SVGChartRenderer.vue'
 
@@ -21,7 +21,7 @@ const renderer = computed(() => {
     case 'echarts': {
       return EchartsRenderer
     }
-    case 'canvas': {
+    case 'zrender': {
       return CanvasChartRenderer
     }
     case 'svg': {

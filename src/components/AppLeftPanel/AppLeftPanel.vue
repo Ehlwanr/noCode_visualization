@@ -16,7 +16,6 @@ const toggleDrawer = (drawerMode: DrawerMode = null) => {
   }
   isDrawerShown.value = drawerMode
   const timeout = setInterval(() => {
-    console.log('resize');
     const ev: any = new Event('resize');
     window.dispatchEvent(ev);
   }, 20)

@@ -11,6 +11,8 @@ import ChartSetting from './ChartSetting.vue'
 import QuoteSetting from './QuoteSetting.vue'
 import ImageSetting from './ImageSetting.vue'
 import SchemaExporter from './SchemaExporter.vue'
+import ButtonSetting from './ButtonSetting.vue'
+import HeroTitleSetting from './HeroTitleSetting.vue'
 
 const appEditorStore = useAppEditorStore()
 
@@ -37,6 +39,12 @@ const blockSetting = computed(() => {
     }
     case 'image': {
       return ImageSetting
+    }
+    case 'heroTitle': {
+      return HeroTitleSetting
+    }
+    case 'button': {
+      return ButtonSetting
     }
     default:
       return ''

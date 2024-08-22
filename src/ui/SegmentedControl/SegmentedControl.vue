@@ -56,11 +56,11 @@ const handleChange = (val: string) => {
 }
 
 
-const innerValue = ref(props.blockInfo.props.chartType ?? props.blockInfo.props.status ?? props.data[0].value)
+const innerValue = ref(props.blockInfo.props.chartType ?? props.blockInfo.props.status ?? props.blockInfo.props.flexJC ?? props.data[0].value)
 
 watch([props],
   ([p]) => {
-    innerValue.value = p.blockInfo.props.chartType ?? props.blockInfo.props.status ?? p.data[0].value
+    innerValue.value = p.blockInfo.props.chartType ?? props.blockInfo.props.status ?? props.blockInfo.props.flexJC ?? p.data[0].value
   },
   { immediate: true }
 )
