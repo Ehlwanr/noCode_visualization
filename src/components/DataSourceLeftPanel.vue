@@ -10,7 +10,11 @@ const activeLink = computed(() => route.path)
 const dataLists = [
   {
     id: '1',
-    name: '数据源'
+    name: '随机数据源'
+  },
+  {
+    id: 'table',
+    name: '可修改表格'
   }
 ]
 </script>
@@ -25,7 +29,9 @@ const dataLists = [
         :to="`/app/dataSource/${ds.id}`"
       >
         <Data/>
-        <div class="item-label">{{ ds.id }} 100w 行</div>
+        <div class="item-label" >{{ ds.name }}</div>
+        <!-- <div class="item-label" v-if="ds.id === '1'">{{ ds.name }}</div> -->
+        <!-- <div class="item-label" v-else>{{ ds.id }}</div> -->
       </router-link>
     </div>
   </div>

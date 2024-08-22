@@ -1,5 +1,4 @@
-import { defineAsyncComponent } from 'vue'
-import { createMemoryHistory, createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 
 import AppView from '../views/AppView.vue'
 
@@ -14,13 +13,15 @@ const router = createRouter({
         {
           path: 'dataSource',
           name: 'dataSource',
-          component: defineAsyncComponent(() => import('../views/DataSourceView.vue')),
+          component: () => import('../views/DataSourceView.vue'),
           children: [
             {
+              path: 'table',
+              component: () => import('../views/DataSourceContent/TableContent.vue')
+            },
+            {
               path: ':id',
-              component: defineAsyncComponent(
-                () => import('../views/DataSourceContent/DataSourceContent.vue')
-              )
+              component: () => import('../views/DataSourceContent/DataSourceContent.vue')
             },
             {
               path: '',
@@ -31,19 +32,19 @@ const router = createRouter({
         {
           path: 'layout',
           name: 'layout',
-          component: defineAsyncComponent(() => import('../views/PageLayoutView.vue'))
+          component: () => import('../views/PageLayoutView.vue')
         },
         {
           path: 'actions',
           name: 'actions',
-          component: defineAsyncComponent(() => import('../views/ActionsView.vue'))
+          component: () => import('../views/ActionsView.vue')
         }
       ]
     },
     {
       path: '/runner',
       name: 'runner',
-      component: defineAsyncComponent(() => import('../views/RunnerView.vue'))
+      component: () => import('../views/RunnerView.vue')
     },
     {
       path: '/',
@@ -51,16 +52,5 @@ const router = createRouter({
     }
   ]
 })
-
-// export const innerRouter = createRouter({
-//   history: createMemoryHistory(import.meta.env.BASE_URL),
-//   routes: [
-//     {
-//       path: '/',
-//       name: 'home',
-//       component: HomeView
-//     }
-//   ]
-// })
 
 export default router

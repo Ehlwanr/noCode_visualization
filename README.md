@@ -19,17 +19,17 @@ mobile 渲染器
 数据源管理
 ![数据源]()
 
-### 项目运行
-install
+## 项目运行
+#### install
 `pnpm install` or `pnpm i`
-run
+#### run
 `pnpm dev`
-build
+#### build
 `pnpm build-only`
 
 
-#### Vue 项目基础架构设计
-技术选型
+## Vue 项目基础架构设计
+### 技术选型
 - Vue CLI、Vue3
 - 状态管理store: Pinia
 - 路由: Vue-Router
@@ -40,18 +40,3 @@ build
 - 流程编排：@vue-flow/core
 - 图表：echarts
 - 包管理：pnpm
-- 工程化相关
-  - vite
-  - lint-staged
-  - cspell
-  - commitizen
-  - cz-git
-  - husky
-  - zx
-  - tsno
-- lint规范：
-  - commitlint；
-  - stylelint；
-  - prettier；
-  - eslint；
-  - editorconfig

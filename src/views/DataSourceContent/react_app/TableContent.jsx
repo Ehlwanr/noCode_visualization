@@ -3,66 +3,25 @@ import '@glideapps/glide-data-grid/dist/index.css'
 import { DataEditor, GridCellKind, GridColumnIcon } from '@glideapps/glide-data-grid'
 import { useEffect, useRef, useState } from 'react'
 
-const tempDataList = new Array(100_0000).fill(0)
-
-const tempDataPool = [
+let data = [
   {
     id: '001',
     name: '小葱',
-    age: '22',
-    isOpen: true,
-    hobby: ['Basketball🏀', 'Swimming🏊'],
-    avatar: ['https://i.pravatar.cc/300?img=3'],
-    notes: 'This is very cool 😀'
-  },
-  {
-    id: '002',
-    name: '大葱',
-    age: '18',
-    isOpen: true,
-    hobby: ['Food🍜', 'Swimming🏊'],
-    avatar: ['https://i.pravatar.cc/300?img=1'],
-    notes: '我是笔记我是笔记我是笔记我是笔记我是笔记我是笔记我是笔记我是笔记'
-  },
-  {
-    id: '003',
-    name: '香菜',
-    age: '16',
-    isOpen: false,
-    hobby: ['Vegetable🥬'],
-    avatar: ['https://i.pravatar.cc/300?img=4'],
-    notes: '心有猛虎，细嗅蔷薇'
-  },
-  {
-    id: '004',
-    name: '小七',
-    age: '22',
-    isOpen: true,
-    hobby: ['Badminton🏸'],
-    avatar: ['https://i.pravatar.cc/300?img=5'],
-    notes: ' True '
+    age: '20',
   }
 ]
 
-const data = tempDataList.map((item, index) => {
-  const randomIndex = Math.floor(Math.random() * 4)
-  const randomItem = tempDataPool[randomIndex]
-  return {
-    ...randomItem,
-    id: `00${index}`,
-    avatar: randomItem.avatar
-  }
-})
+
 
 // Grid columns may also provide icon, overlayIcon, menu, style, and theme overrides
 const columns = [
-  { title: 'ID', width: 100, icon: GridColumnIcon.HeaderString },
-  { title: '姓名', width: 100, icon: GridColumnIcon.Text },
-  { title: '年龄', width: 100 },
-  { title: '状态', width: 50 },
-  { title: '爱好', width: 250 },
-  { title: '头像', width: 50 },
-  { title: '笔记', width: 500 },
+  { title: 'ID', width: 100, icon: GridColumnIcon.HeaderNumber },
+  { title: '埋点', width: 200, icon: GridColumnIcon.HeaderString },
+  { title: '事件', width: 200, icon: GridColumnIcon.HeaderNumber },
+  { title: '年龄', width: 200, icon: GridColumnIcon.HeaderNumber },
+  { title: '年龄', width: 200, icon: GridColumnIcon.HeaderNumber },
+  { title: '年龄', width: 200, icon: GridColumnIcon.HeaderNumber },
+
 ]
 
 // If fetching data is slow you can use the DataEditor ref to send updates for cells
@@ -92,48 +51,40 @@ function getData([col, row]) {
 
     case 2: {
       return {
-        kind: GridCellKind.Number,
+        kind: GridCellKind.Text,
         data: person.age,
         allowOverlay: true,
-        displayData: person.age
+        displayData: person.age,
       }
     }
 
     case 3: {
       return {
-        kind: GridCellKind.Boolean,
-        data: person.isOpen,
+        kind: GridCellKind.Text,
+        data: person.age,
         allowOverlay: true,
-        displayData: person.isOpen
+        displayData: person.age,
       }
     }
 
     case 4: {
       return {
-        kind: GridCellKind.Bubble,
-        data: person.hobby,
+        kind: GridCellKind.Text,
+        data: person.age,
         allowOverlay: true,
-        displayData: person.hobby
+        displayData: person.age,
       }
     }
 
     case 5: {
       return {
-        kind: GridCellKind.Image,
-        data: person.avatar,
+        kind: GridCellKind.Text,
+        data: person.age,
         allowOverlay: true,
-        displayData: person.avatar
+        displayData: person.age,
       }
     }
 
-    case 6: {
-      return {
-        kind: GridCellKind.Markdown,
-        data: person.notes,
-        allowOverlay: true,
-        displayData: person.Markdown
-      }
-    }
     default: {
       return {}
     }
@@ -142,7 +93,7 @@ function getData([col, row]) {
 
 export default function ReactDataSource() {
   const ref = useRef(null)
-  const [editorRect, setEditorRect] = useState({ width: 400, height: 300 })
+  const [editorRect, setEditorRect] = useState({ width: 500, height: 300 })
   const { width, height } = editorRect
 
   useEffect(() => {
@@ -171,6 +122,14 @@ export default function ReactDataSource() {
         columns={columns}
         getCellContent={getData}
         rows={data.length}
+        // onCellEdited={(p,q)=>{console.log(p,q)}}
+        onCellEdited={(arr, obj) => {
+          switch(arr[0]){
+            // case 1: data[arr[1]].name= obj.data
+            case 2: data[arr[1]].age= obj.data
+          }
+          console.log(arr,obj)
+        }}
       />
       <div id="portal" style={{ position: 'fixed', left: 0, top: 0, zIndex: 9999 }} />
     </div>

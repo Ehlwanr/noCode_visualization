@@ -4,12 +4,9 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { defineAsyncComponent } from 'vue'
 
 import type { ChartBlockInfo } from '@/types/block'
-
-import CanvasChartRenderer from './ZRenderChartRenderer/ZRenderChartRenderer.vue'
-import EchartsRenderer from './EchartsRenderer/EchartsRenderer.vue'
-import SVGChartRenderer from './SVGChartRenderer/SVGChartRenderer.vue'
 
 const props = defineProps<{
   blockInfo: ChartBlockInfo
@@ -19,13 +16,13 @@ const renderer = computed(() => {
   if (!props.blockInfo) return ''
   switch (props.blockInfo.props.chartType) {
     case 'echarts': {
-      return EchartsRenderer
+      return defineAsyncComponent(()=> import('./EchartsRenderer/EchartsRenderer.vue'))
     }
     case 'zrender': {
-      return CanvasChartRenderer
+      return defineAsyncComponent(()=> import( './ZRenderChartRenderer/ZRenderChartRenderer.vue'))
     }
     case 'svg': {
-      return SVGChartRenderer
+      return defineAsyncComponent(()=> import('./SVGChartRenderer/SVGChartRenderer.vue'))
     }
     default:
       return ''
