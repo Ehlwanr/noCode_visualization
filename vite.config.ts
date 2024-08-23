@@ -4,8 +4,8 @@ import { visualizer } from 'rollup-plugin-visualizer'
 import veauryVitePlugins from 'veaury/vite/index.js'
 import { defineConfig, splitVendorChunkPlugin } from 'vite'
 
-// https://vitejs.dev/config/
 export default defineConfig({
+  base: '/noCode_visualization/',
   plugins: [
     // vue(),
     // vueJsx(),
