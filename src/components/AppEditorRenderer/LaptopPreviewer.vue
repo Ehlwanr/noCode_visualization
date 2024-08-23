@@ -42,7 +42,9 @@ function toggle() {
         @full-screen="toggle"
       />
     </div>
-    <AppLaptopPreviewer />
+    <div class="previewer-content">
+      <AppLaptopPreviewer />
+    </div>
   </div>
 </template>
 
@@ -86,44 +88,7 @@ function toggle() {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
-.layout-runner-content-wrapper {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
+.previewer-content{
   overflow: auto;
-}
-
-.layout-runner-content-header {
-  position: sticky;
-  top: 0;
-  z-index: 2;
-}
-
-.layout-runner-content-navigator {
-  height: 56px;
-  font-size: var(--font-size-normal);
-  align-items: center;
-  padding: 0 16px;
-  background-color: var(--color-primary);
-  border-bottom: 1px solid rgb(31 41 55 / 8%);
-}
-
-.layout-runner-content-title {
-  display: flex;
-  align-items: center;
-  padding: 0 90px;
-  height: 90px;
-  font-size: 24px;
-  font-weight: var(--font-weight-bolder);
-  color: var(--color-white);
-  background-color: var(--color-primary);
-}
-
-.layout-runner-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0 90px;
 }
 </style>

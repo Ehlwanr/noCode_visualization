@@ -3,12 +3,22 @@ import { applyPureReactInVue } from 'veaury'
 
 // @ts-ignore
 import ReactDataSource from './react_app/ReactDataSource'
+import { useRoute } from 'vue-router'
+const route = useRoute()
 const RDataSource = applyPureReactInVue(ReactDataSource)
+
+function processId(id: string | string[]): string | undefined {
+  if (Array.isArray(id)) {
+    // 如果id是一个数组，选择第一个元素或者处理它以返回一个单一的值
+    return id.length > 0 ? id[0] : undefined;
+  }
+  return id; // 当id已经是字符串时直接返回
+}
 </script>
 <template>
   <div class="data-source-content-wrapper">
-    <div class="data-source-render">
-      <r-dataSource />
+    <div  class="data-source-render">
+      <r-dataSource :key="processId(route.params.id)"/>
     </div>
   </div>
 </template>

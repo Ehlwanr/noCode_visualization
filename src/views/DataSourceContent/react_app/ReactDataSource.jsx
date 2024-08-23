@@ -17,7 +17,7 @@ const tempDataPool = [
   },
   {
     id: '002',
-    name: '大葱',
+    name: '大蒜',
     age: '18',
     isOpen: true,
     hobby: ['Food🍜', 'Swimming🏊'],
@@ -54,7 +54,6 @@ const data = tempDataList.map((item, index) => {
   }
 })
 
-// Grid columns may also provide icon, overlayIcon, menu, style, and theme overrides
 const columns = [
   { title: 'ID', width: 100, icon: GridColumnIcon.HeaderString },
   { title: '姓名', width: 100, icon: GridColumnIcon.Text },
@@ -65,8 +64,6 @@ const columns = [
   { title: '笔记', width: 500 },
 ]
 
-// If fetching data is slow you can use the DataEditor ref to send updates for cells
-// once data is loaded.
 function getData([col, row]) {
   const person = data[row]
 
@@ -86,7 +83,6 @@ function getData([col, row]) {
         data: person.name,
         allowOverlay: true,
         displayData: person.name,
-        hasMenu: true
       }
     }
 
@@ -128,10 +124,10 @@ function getData([col, row]) {
 
     case 6: {
       return {
-        kind: GridCellKind.Markdown,
+        kind: GridCellKind.Text,
         data: person.notes,
         allowOverlay: true,
-        displayData: person.Markdown
+        displayData: person.notes
       }
     }
     default: {
@@ -162,6 +158,16 @@ export default function ReactDataSource() {
       window.removeEventListener('resize', calcRect, false)
     }
   }, [])
+  const onCellEdited = ((cell, newValue) => {
+    if (newValue.kind !== GridCellKind.Text && newValue.kind !== GridCellKind.Boolean) {
+      return;
+    }
+
+    const indexes = ["id", "name", "age", "isOpen", "hobby", "avatar", "notes"];
+    const [col, row] = cell;
+    const key = indexes[col];
+    data[row][key] = newValue.data;
+  });
 
   return (
     <div ref={ref}>
@@ -171,6 +177,8 @@ export default function ReactDataSource() {
         columns={columns}
         getCellContent={getData}
         rows={data.length}
+        onCellEdited={onCellEdited}
+        rowMarkers={'both'}
       />
       <div id="portal" style={{ position: 'fixed', left: 0, top: 0, zIndex: 9999 }} />
     </div>

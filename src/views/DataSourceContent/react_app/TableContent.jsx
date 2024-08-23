@@ -3,24 +3,33 @@ import '@glideapps/glide-data-grid/dist/index.css'
 import { DataEditor, GridCellKind, GridColumnIcon } from '@glideapps/glide-data-grid'
 import { useEffect, useRef, useState } from 'react'
 
-let data = [
+const tempDataList = new Array(100).fill(0)
+
+let tempDataPool = [
   {
-    id: '001',
-    name: '小葱',
-    age: '20',
+    id: '1',
+    event: 'click',
+    name: 'index_1',
+    title: 'title_car',
+    module: 'module_car_item',
+    key1: 'key1',
   }
 ]
+let data = tempDataList.map((item, index) => {
+  const randomItem = tempDataPool[0]
+  return {
+    ...randomItem,
+    id: `00${index+ 1}`,
+  }
+})
 
-
-
-// Grid columns may also provide icon, overlayIcon, menu, style, and theme overrides
 const columns = [
-  { title: 'ID', width: 100, icon: GridColumnIcon.HeaderNumber },
-  { title: '埋点', width: 200, icon: GridColumnIcon.HeaderString },
-  { title: '事件', width: 200, icon: GridColumnIcon.HeaderNumber },
-  { title: '年龄', width: 200, icon: GridColumnIcon.HeaderNumber },
-  { title: '年龄', width: 200, icon: GridColumnIcon.HeaderNumber },
-  { title: '年龄', width: 200, icon: GridColumnIcon.HeaderNumber },
+  { title: '埋点ID', width: 100, icon: GridColumnIcon.HeaderNumber },
+  { title: 'event_name', width: 200, icon: GridColumnIcon.HeaderString },
+  { title: 'page_name', width: 200 },
+  { title: 'page_title', width: 200 },
+  { title: 'module_name', width: 200 },
+  { title: 'key1', width: 200 },
 
 ]
 
@@ -42,9 +51,9 @@ function getData([col, row]) {
     case 1: {
       return {
         kind: GridCellKind.Text,
-        data: person.name,
+        data: person.event,
         allowOverlay: true,
-        displayData: person.name,
+        displayData: person.event,
         hasMenu: true
       }
     }
@@ -52,36 +61,36 @@ function getData([col, row]) {
     case 2: {
       return {
         kind: GridCellKind.Text,
-        data: person.age,
+        data: person.name,
         allowOverlay: true,
-        displayData: person.age,
+        displayData: person.name,
       }
     }
 
     case 3: {
       return {
         kind: GridCellKind.Text,
-        data: person.age,
+        data: person.title,
         allowOverlay: true,
-        displayData: person.age,
+        displayData: person.title,
       }
     }
 
     case 4: {
       return {
         kind: GridCellKind.Text,
-        data: person.age,
+        data: person.module,
         allowOverlay: true,
-        displayData: person.age,
+        displayData: person.module,
       }
     }
 
     case 5: {
       return {
         kind: GridCellKind.Text,
-        data: person.age,
+        data: person.key1,
         allowOverlay: true,
-        displayData: person.age,
+        displayData: person.key1,
       }
     }
 
@@ -122,13 +131,15 @@ export default function ReactDataSource() {
         columns={columns}
         getCellContent={getData}
         rows={data.length}
-        // onCellEdited={(p,q)=>{console.log(p,q)}}
+        rowMarkers={'both'}
         onCellEdited={(arr, obj) => {
-          switch(arr[0]){
-            // case 1: data[arr[1]].name= obj.data
-            case 2: data[arr[1]].age= obj.data
+          switch (arr[0]) {
+            case 1: return data[arr[1]].event= obj.data
+            case 2: return data[arr[1]].name = obj.data
+            case 3: return data[arr[1]].title = obj.data
+            case 4: return data[arr[1]].module = obj.data
+            case 5: return data[arr[1]].key1 = obj.data
           }
-          console.log(arr,obj)
         }}
       />
       <div id="portal" style={{ position: 'fixed', left: 0, top: 0, zIndex: 9999 }} />

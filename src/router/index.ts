@@ -25,7 +25,7 @@ const router = createRouter({
             },
             {
               path: '',
-              redirect: '/app/dataSource/1'
+              redirect: '/app/dataSource/table'
             }
           ]
         },

@@ -8,14 +8,30 @@ const route = useRoute()
 const activeLink = computed(() => route.path)
 
 const dataLists = [
-  {
-    id: '1',
-    name: '随机数据源'
-  },
-  {
+{
     id: 'table',
     name: '可修改表格'
-  }
+  },
+  {
+    id: '1',
+    name: '随机数据源(100W)'
+  },
+  {
+    id: '2',
+    name: '随机数据源(100W)'
+  },
+  {
+    id: '3',
+    name: '随机数据源(100W)'
+  },
+  {
+    id: '4',
+    name: '随机数据源(100W)'
+  },
+  {
+    id: '5',
+    name: '随机数据源(100W)'
+  },
 ]
 </script>
 

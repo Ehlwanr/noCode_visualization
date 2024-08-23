@@ -1,14 +1,12 @@
 <script setup lang="ts">
 import BlocksRenderer from '@/blocks/BlocksRenderer.vue'
-
-// import StatusBar from '../AppEditorRenderer/StatusBar.vue'
 </script>
 
 <template>
-  <div class="content">
-    <div class="layout-runner-content-navigator"></div>
-    <div class="navigator-wrapper">
-      <div class="navigator">Visualization</div>
+  <div>
+    <div class="content-navigator"></div>
+    <div class="content-title-wrapper">
+      <div class="content-title">Visualization</div>
     </div>
 
     <div class="render-content">
@@ -24,44 +22,35 @@ import BlocksRenderer from '@/blocks/BlocksRenderer.vue'
   flex-direction: column;
   background-color: var(--color-white);
 }
-
-.layout-runner-content-navigator {
-  height: 20px;
-  font-size: var(--font-size-normal);
-  align-items: center;
-  padding: 0 16px;
+/* gggg */
+.content-navigator {
+  height: 25px;
   background-color: var(--color-primary);
   border-bottom: 1px solid rgb(31 41 55 / 8%);
 }
 
-.navigator-wrapper {
+.content-title-wrapper {
   position: sticky;
   top: 0;
   z-index: 2;
 }
 
-.navigator {
+.content-title {
   display: flex;
-  height: 56px;
+  height: 50px;
   align-items: center;
   padding: 0 12px;
   font-size: 18px;
   font-weight: var(--font-weight-bolder);
   color: var(--color-white);
   background-color: var(--color-primary);
-  border-bottom: 1px solid rgb(31 41 55 / 8%);
 }
 
-.title {
-  height: 90px;
-  background-color: var(--color-primary);
-}
 
 .render-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 0 12px 32px;
-  flex: 1;
 }
 </style>

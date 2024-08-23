@@ -2,35 +2,38 @@
 import { SmoothDndContainer } from '@/components/SmoothDnd/SmoothDndContainer'
 import { SmoothDndDraggable } from '@/components/SmoothDnd/SmoothDndDraggable'
 import { blocksBaseMetaList, getBlocksDefaultData } from '@/constants/blocksBaseMeta'
+import { useEnvStore } from '@/stores/debug';
+
+const envStore = useEnvStore()
 </script>
 
 <template>
   <div class="blocks-drawer-wrapper">
     <h3 class="drawer-title">组件</h3>
-    <!-- <div v-for="d in blocksBaseMetaList" :key="d.type">{{ d.type }}</div> -->
-
-    <smooth-dnd-container
-      behaviour="copy"
-      group-name="blocks"
-      orientation="vertical"
-      :get-child-payload="
-        (index: number) => {
-          const { type } = blocksBaseMetaList[index]
-          return getBlocksDefaultData(type)
-        }
-      "
-      tag="div"
-      class="blocks-list"
-    >
-      <smooth-dnd-draggable v-for="d in blocksBaseMetaList" :key="d.type">
-        <div class="blocks-item">
-          <div class="block-icon-wrapper">
-            <component :is="d.icon" />
+    <div v-show="envStore.debug">
+      <smooth-dnd-container
+        behaviour="copy"
+        group-name="blocks"
+        orientation="vertical"
+        :get-child-payload="
+          (index: number) => {
+            const { type } = blocksBaseMetaList[index]
+            return getBlocksDefaultData(type)
+          }
+        "
+        tag="div"
+        class="blocks-list"
+      >
+        <smooth-dnd-draggable v-for="d in blocksBaseMetaList" :key="d.type">
+          <div class="blocks-item">
+            <div class="block-icon-wrapper">
+              <component :is="d.icon" />
+            </div>
+            <span class="block-label">{{ d.label }}</span>
           </div>
-          <span class="block-label">{{ d.label }}</span>
-        </div>
-      </smooth-dnd-draggable>
-    </smooth-dnd-container>
+        </smooth-dnd-draggable>
+      </smooth-dnd-container>
+    </div>
   </div>
 </template>
 

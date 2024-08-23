@@ -13,8 +13,10 @@ import ImageSetting from './ImageSetting.vue'
 import SchemaExporter from './SchemaExporter.vue'
 import ButtonSetting from './ButtonSetting.vue'
 import HeroTitleSetting from './HeroTitleSetting.vue'
+import { useEnvStore } from '@/stores/debug'
 
 const appEditorStore = useAppEditorStore()
+const envStore = useEnvStore()
 
 const blocksMap = computed(() => {
   const { blocks } = appEditorStore
@@ -58,7 +60,7 @@ const blockSetting = computed(() => {
       <div class="app-right-panel-header">
         {{ blocksBaseMeta[currentBlockInfo.type].label }}
       </div>
-      <div class="app-right-panel-content">
+      <div v-show="envStore.debug" class="app-right-panel-content">
         <component
           :is="blockSetting"
           :blockInfo="currentBlockInfo"

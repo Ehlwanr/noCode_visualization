@@ -12,7 +12,7 @@ type EventKey = 'drag-start' | 'drag-end' | 'drop' | 'drag-enter' | 'drag-leave'
 const eventEmitterMap: Record<EventKey, string> = {
   'drag-start': 'onDragStart',
   'drag-end': 'onDragEnd',
-  drop: 'onDrop',
+  'drop': 'onDrop',
   'drag-enter': 'onDragEnter',
   'drag-leave': 'onDragLeave',
   'drop-ready': 'onDropReady'

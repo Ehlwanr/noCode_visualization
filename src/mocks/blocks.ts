@@ -64,7 +64,7 @@ export const blocks: BlockInfo[] = [
     }
   },
   {
-    id: '7',
+    id: '8',
     type: 'form',
     label: '表单',
     props: {
