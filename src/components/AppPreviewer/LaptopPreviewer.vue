@@ -43,5 +43,6 @@ import BlocksRenderer from '@/blocks/BlocksRenderer.vue'
   flex-direction: column;
   align-items: center;
   padding: 0 90px;
+  margin: 20px 0;
 }
 </style>
