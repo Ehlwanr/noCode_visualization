@@ -12,7 +12,7 @@ const tempDataPool = [
     age: '22',
     isOpen: true,
     hobby: ['Basketball🏀', 'Swimming🏊'],
-    avatar: ['https://i.pravatar.cc/300?img=3'],
+    avatar: ['../../../assets/images/icon-test.png'],
     notes: 'This is very cool 😀'
   },
   {
@@ -21,7 +21,7 @@ const tempDataPool = [
     age: '18',
     isOpen: true,
     hobby: ['Food🍜', 'Swimming🏊'],
-    avatar: ['https://i.pravatar.cc/300?img=1'],
+    avatar: ['../../../assets/images/icon-test_1.png'],
     notes: '我是笔记我是笔记我是笔记我是笔记我是笔记我是笔记我是笔记我是笔记'
   },
   {
@@ -30,7 +30,7 @@ const tempDataPool = [
     age: '16',
     isOpen: false,
     hobby: ['Vegetable🥬'],
-    avatar: ['https://i.pravatar.cc/300?img=4'],
+    avatar: ['../../../assets/images/icon-test_2.png'],
     notes: '心有猛虎，细嗅蔷薇'
   },
   {
@@ -39,7 +39,7 @@ const tempDataPool = [
     age: '22',
     isOpen: true,
     hobby: ['Badminton🏸'],
-    avatar: ['https://i.pravatar.cc/300?img=5'],
+    avatar: ['../../../assets/images/icon-test_4.png'],
     notes: ' True '
   }
 ]
