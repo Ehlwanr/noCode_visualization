@@ -12,7 +12,7 @@ const tempDataPool = [
     age: '22',
     isOpen: true,
     hobby: ['Basketball🏀', 'Swimming🏊'],
-    avatar: ['../../../assets/images/icon-test.png'],
+    avatar: ['https://Ehlwanr.github.io/picx-images-hosting/noCode_visualization_images/icon-avatar-1.wihspceu6.webp'],
     notes: 'This is very cool 😀'
   },
   {
@@ -21,7 +21,7 @@ const tempDataPool = [
     age: '18',
     isOpen: true,
     hobby: ['Food🍜', 'Swimming🏊'],
-    avatar: ['../../../assets/images/icon-test_1.png'],
+    avatar: ['https://Ehlwanr.github.io/picx-images-hosting/noCode_visualization_images/icon-avatar-2.8vmunrriu5.webp'],
     notes: '我是笔记我是笔记我是笔记我是笔记我是笔记我是笔记我是笔记我是笔记'
   },
   {
@@ -30,7 +30,7 @@ const tempDataPool = [
     age: '16',
     isOpen: false,
     hobby: ['Vegetable🥬'],
-    avatar: ['../../../assets/images/icon-test_2.png'],
+    avatar: ['https://Ehlwanr.github.io/picx-images-hosting/noCode_visualization_images/icon-avatar-3.1aoxjkkpp8.webp'],
     notes: '心有猛虎，细嗅蔷薇'
   },
   {
@@ -39,7 +39,7 @@ const tempDataPool = [
     age: '22',
     isOpen: true,
     hobby: ['Badminton🏸'],
-    avatar: ['../../../assets/images/icon-test_4.png'],
+    avatar: ['https://Ehlwanr.github.io/picx-images-hosting/noCode_visualization_images/icon-avatar-4.6m3u4a6sd8.webp'],
     notes: ' True '
   }
 ]
