@@ -18,6 +18,7 @@ mobile 渲染器
 
 数据源管理
 ![数据源](https://Ehlwanr.github.io/picx-images-hosting/noCode_visualization_images/image.8hgeq1s1ny.webp)
+![数据源](https://Ehlwanr.github.io/picx-images-hosting/noCode_visualization_images/example_6.32hwepo9dz.webp)
 
 ## 物料介绍
 ### 引述 quote
